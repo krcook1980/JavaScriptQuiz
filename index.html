@@ -1,33 +1,85 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <title>JavaScript Quiz</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css" class="text">
-  </head>
-  <body><!--Do I want a background image or is it too busy?-->
-    <header>
-        <!-- responsive header with snappy design-->
-        <!--Location of count down timer in header... maybe far right?-->
-    </header>
-    <section>
-        <!-- paragraph explaining quiz and scoring method?-->
-        <!--bootstrap card? to display question and selection buttons-->
-        <!--score and leader board to show at the end-->
+<head>
+  <title>JavaScript Quiz</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css" class="text">
+</head>
+
+<body>
+  <header class="p-3 mb-2 bg-info text-white text-center">
+    <div class="row">
+      <div class="col">
+        <h4 class="score"><a href="#" class="text-white" alt="link to high scores">High Scores</a>
+      </div>
+      <div class=col-6>
+        <h1 class="h1">Javascript Quiz</h1>
+        <small class="text-white">Answer the questions as quickly as possible. You have 30 seconds to complete the quiz.
+        
+        <br> Scoring will be based on total correct answers as well as time remaining.
+      </small>
+      </div>
+      <!--timer on right-->
+      <div class="col">
+        <h3 class="time" class="float-end"></h3>
+      </div>
+    </div>
+  </header>
+  <section id="mainE1">
+    <!-- container for start button-->
+    <div class="start">
+      <div class="row">
+        <div class="col-md-12">Click start to begin timer!</div>
+        <div type="button" class="btn btn-primary" id="startBtn">Start</div></button>
+      </div>
+    </div>
+    <!-- container for quiz-->
+    <div class="quizDiv">
+      <!-- Question-->
+      <div class="row" class="questions">
+        <div class="col-md-12" class="Q">Questions
+        </div>
+      </div>
+      <!--Choices-->
+      <div class="row" class="Choices" class="te">
+        <div class="col" class="btn-group-vertical">
+          <button type="button" class="btn btn-primary" class="C1">C1</button>
+          <button type="button" class="btn btn-primary" class="C2">C2</button>
+          <button type="button" class="btn btn-primary" class="C3">C3</button>
+          <button type="button" class="btn btn-primary" class="C4">C4</button>
+          <button type="button" class="btn btn-primary" class="C5">C5</button>
+        </div>
+      </div>
+      <!--Correct or Wrong-->
+      <div class="row" class="correct">
+        <div class="col">Correct or wrong to display after </div>
+      </div>
+    </div>
+
+    <!--score and leader board to show at the end-->
 
 
-    </section>
- 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
+  </section>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="script.js"></script>
 </body>
+
 </html>
