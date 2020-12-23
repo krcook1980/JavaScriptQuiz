@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  <header class="p-3 mb-2 bg-info text-white text-center">
+  <header class="p-3 mb-5 bg-info text-white text-center">
     <div class="row">
       <div class="col">
         <h4 class="score"><a href="#" class="text-white" alt="link to high scores">High Scores</a>
@@ -32,39 +32,58 @@
       </div>
     </div>
   </header>
-  <section id="mainE1">
+
+  <section>
     <!-- container for start button-->
-    <div class="start">
-      <div class="row">
-        <div class="col-md-12">Click start to begin timer!</div>
-        <div type="button" class="btn btn-primary" id="startBtn">Start</div></button>
+    <div id="startDiv">
+      <div class="row text-center">
+        <div class="col-md-12 display-4 mb-5">Click start to begin!</div>
+      </div>
+      <div class="row text-center">
+        <div type="button" class="btn btn-info col-md-1 mx-auto" id="startBtn">Start</div></button>
       </div>
     </div>
+    
     <!-- container for quiz-->
-    <div class="quizDiv">
+    <div id="quizDiv" class="invisible">
       <!-- Question-->
-      <div class="row" class="questions">
-        <div class="col-md-12" class="Q">Questions
+      <div class="row">
+        <div class="col-md-12 text-center mb-4" id="Q" style="font-size:35px">Question
         </div>
       </div>
       <!--Choices-->
-      <div class="row" class="Choices" class="te">
-        <div class="col" class="btn-group-vertical">
-          <button type="button" class="btn btn-primary" class="C1">C1</button>
-          <button type="button" class="btn btn-primary" class="C2">C2</button>
-          <button type="button" class="btn btn-primary" class="C3">C3</button>
-          <button type="button" class="btn btn-primary" class="C4">C4</button>
-          <button type="button" class="btn btn-primary" class="C5">C5</button>
+      <div class="row">
+        <div id="choices" class="col-md-1 btn-group-vertical mx-auto">
+          <button type="button" class="choiceBtn btn btn-info mb-3" id="C1"  >C1</button>
+          <button type="button" class="choiceBtn btn btn-info mb-3" id="C2"  >C2</button>
+          <button type="button" class="choiceBtn btn btn-info mb-3" id="C3"  >C3</button>
+          <button type="button" class="choiceBtn btn btn-info mb-3" id="C4" >C4</button>
+          
         </div>
       </div>
       <!--Correct or Wrong-->
-      <div class="row" class="correct">
-        <div class="col">Correct or wrong to display after </div>
+      <div class="row">
+        <div id = "correct" class="col-md-12 text-center"></div>
       </div>
     </div>
 
     <!--score and leader board to show at the end-->
+    <div id="endScore" class="invisible">
+      <div class="row">
+        <div class= "col-md-12 display-4 mb-5 text-center">Your Score </div>
+      </div>  
+      <div class="row">    
+        <div id="finalScore" class= "col-md-12 display-4 mb-5 text-center">score here </div>
+      </div> 
+      <div class="row">
+        <div class="col-md-4 display-4 mb-5"></div>
+        <div class="col-md-4 display-4 mb-5">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Name">
+          </div> 
+        </div>
 
+    </div>
 
   </section>
 
