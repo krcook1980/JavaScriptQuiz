@@ -17,14 +17,14 @@
   <header class="p-3 mb-5 bg-info text-white text-center">
     <div class="row">
       <div class="col">
-        <h4 class="score"><a href="#" class="text-white" alt="link to high scores">High Scores</a>
+        <h4 class="score pt-4"><a href="./score.html" class="text-white" alt="link to high scores">High Scores</a>
       </div>
       <div class=col-6>
-        <h1 class="h1">Javascript Quiz</h1>
-        <small class="text-white">Answer the questions as quickly as possible. You have 30 seconds to complete the quiz.
-        
-        <br> Scoring will be based on total correct answers as well as time remaining.
-      </small>
+        <h1 class="h1">JavaScript Quiz</h1>
+        <small class="text-white">Answer the questions as quickly as possible. You have 60 seconds to complete the quiz.
+
+          <br> Time remaining will decrease 15 sec for wrong answers. Best time wins!
+        </small>
       </div>
       <!--timer on right-->
       <div class="col">
@@ -43,7 +43,7 @@
         <div type="button" class="btn btn-info col-md-1 mx-auto" id="startBtn">Start</div></button>
       </div>
     </div>
-    
+
     <!-- container for quiz-->
     <div id="quizDiv" class="invisible">
       <!-- Question-->
@@ -53,36 +53,37 @@
       </div>
       <!--Choices-->
       <div class="row">
-        <div id="choices" class="col-md-1 btn-group-vertical mx-auto">
-          <button type="button" class="choiceBtn btn btn-info mb-3" id="C1"  >C1</button>
-          <button type="button" class="choiceBtn btn btn-info mb-3" id="C2"  >C2</button>
-          <button type="button" class="choiceBtn btn btn-info mb-3" id="C3"  >C3</button>
-          <button type="button" class="choiceBtn btn btn-info mb-3" id="C4" >C4</button>
-          
+        <div id="choices" class="col-md-3 btn-group-vertical mx-auto">
+          <button type="button" class="choiceBtn btn btn-info mb-2" id="C1">C1</button>
+          <button type="button" class="choiceBtn btn btn-info mb-2" id="C2">C2</button>
+          <button type="button" class="choiceBtn btn btn-info mb-2" id="C3">C3</button>
+          <button type="button" class="choiceBtn btn btn-info mb-2" id="C4">C4</button>
+
         </div>
       </div>
       <!--Correct or Wrong-->
       <div class="row">
-        <div id = "correct" class="col-md-12 text-center"></div>
+        <div id="correct" class="col-md-12 text-center"></div>
       </div>
     </div>
-
     <!--score and leader board to show at the end-->
     <div id="endScore" class="invisible">
       <div class="row">
-        <div class= "col-md-12 display-4 mb-5 text-center">Your Score </div>
-      </div>  
-      <div class="row">    
-        <div id="finalScore" class= "col-md-12 display-4 mb-5 text-center">score here </div>
-      </div> 
+        <div class="col-md-12 display-4 mb-5 text-center">Your Score: <span id="finalScore"
+            class="col-md-12 display-4 mb-5 text-center"></span>
+        </div>
+      </div>
       <div class="row">
-        <div class="col-md-4 display-4 mb-5"></div>
+        <div class="col-md-4 display-4 mb-5">
+
+        </div>
         <div class="col-md-4 display-4 mb-5">
           <div class="col">
-            <input type="text" class="form-control" placeholder="Name">
-          </div> 
+            <input type="text" class="form-control nameEntered" placeholder="Enter your name for the leader board">
+          </div>
         </div>
 
+      </div>
     </div>
 
   </section>

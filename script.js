@@ -4,6 +4,7 @@
 //global variables
 var timeEl = document.querySelector(".time");
 var start = document.getElementById("startBtn");
+var startDiv = document.getElementById("startDiv");
 var quizDiv = document.getElementById("quizDiv");
 var correct = document.getElementById("correct");
 var endScore = document.getElementById("endScore");
@@ -14,6 +15,7 @@ var btn4 = document.getElementById("C4");
 var choiceBtn = document.querySelectorAll(".choiceBtn");
 var choiceButton = document.querySelectorAll(".choiceBtn");
 var timerInterval;
+
 
 //question objects
 var Q1 = {
@@ -73,33 +75,35 @@ var Q6 = {
 
 //global var dependant on above objects
 var questionsArray = [Q1, Q2, Q3, Q4, Q5, Q6];
-var secondsLeft = questionsArray.length * 15;
+var secondsLeft = questionsArray.length * 1;
 var questionIndex = 0;
 
-//funtion for timer
+//function for timer
 function setTime() {
-  timerInterval = setInterval(function () {
+   var timerInterval = setInterval(function () {
     secondsLeft--;
     timeEl.textContent = secondsLeft + " seconds remaining";
 
     if (secondsLeft === 0) {
       clearInterval(timerInterval);
       sendMessage();
+      endQuiz();
     }
-
+    
   }, 1000);
 }
 
 function sendMessage() {
   timeEl.textContent = "Time's Up!";
+  endQuiz();
 }
 
 //toggle start div to quiz div
 function visible() {
-  document.getElementById("startDiv").className = "invisible";
+  startDiv.className = "invisible"
+  startDiv.style = "display:none";
   quizDiv.classList.remove("invisible");
   quizDiv.className = "visible";
-
 }
 
 //function to display each question in quiz
@@ -108,7 +112,11 @@ function quizDisplay() {
   document.getElementById("C1").innerHTML = questionsArray[questionIndex].C1;
   document.getElementById("C2").innerHTML = questionsArray[questionIndex].C2;
   document.getElementById("C3").innerHTML = questionsArray[questionIndex].C3;
-  document.getElementById("C4").innerHTML = questionsArray[questionIndex].C4;
+  document.getElementById("C4").innerHTML = questionsArray[questionIndex].C4; 
+  if (questionsArray[questionIndex] == questionsArray.length)  {
+    clearInterval(timerInterval);
+    endQuiz();
+  }
 }
 //find which button is selected
 for (var i = 0; i < choiceBtn.length; i++){
@@ -116,45 +124,50 @@ for (var i = 0; i < choiceBtn.length; i++){
 }
 
 function choices() {
-  correct.innerHTML=" ";
+  correct.textContent = " ";
   var btnId = this.getAttribute("id");
   isCorrect (btnId);
   questionIndex++;
-  finalScore();
+  endQuiz();
   quizDisplay();
   }
 //function for if selected button is correct answer
  function isCorrect (btnId){
    
     if (btnId == questionsArray[questionIndex].answer) {
-      correct.innerHTML = "CORRECT!";
+      correct.textContent = "CORRECT!";
       console.log("correct");
     }
     else {
-      correct.innerHTML = "Incorrect...";
+      correct.textContent = "Incorrect...";
       console.log("incorrect");
-      secondsLeft = secondsLeft - 15;
+      if (secondsLeft > 15){
+        secondsLeft = secondsLeft - 15;
+      }
+      else {
+        //stop timer -- not working
+        endQuiz();
+      }
     }
     //stop timer and pause to show if correct before moving on to next question
     clearInterval(timerInterval)
     setTimeout(startQuiz, 2000);
  }
  //if time is up or all questions answered, score with box
- function finalScore (){
-   if (questionsArray[questionIndex] == questionsArray.length){
+
+//scoring mechanism time at end, send to local storage
+function endQuiz () {
     quizDiv.classList.remove("visible");
     quizDiv.className = "invisible";
-    endScore.classList.remove("invisible");
-    endScore.className = "invisible";
-   }
- }
-//scoring mechanism ... number answered correct + time remaining on the clock stored in local storage
+    quizDiv.style = "display:none";
+    document.getElementById("endScore").classList.remove("invisible");
+    document.getElementById("endScore").classList.className = "visible";
+    document.getElementById("finalScore").textContent=secondsLeft;
+    //Option to enter name when finished to store on leader board
+        //get class nameEntered and log to local storage with score
+}
 
-//Option to enter name when finished to store on leader board
-
-//leader board with clear option
-
-//on click start button, start time
+//on click start button, start time and quiz
 function startQuiz () {
 setTime();
 quizDisplay();
@@ -162,3 +175,6 @@ visible();
 }
 
 start.addEventListener("click", startQuiz);
+
+//SCORE JS
+//leader board with clear option
