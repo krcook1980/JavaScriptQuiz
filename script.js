@@ -194,13 +194,19 @@ var storedScores = JSON.parse(localStorage.getItem("scores"));
 
 //Get scores out of local storage & add to ul
 function renderScores() {
-  
-  
+  var storedScores = JSON.parse(localStorage.getItem("scores"));
+  if (storedScores !== null) {
+    scores = storedScores;
+  }
   for (var i = 0; i < scores.length; i++) {
+    scores.sort();
+    scores.reverse();
     var score = scores[i];
     var li = document.createElement("li");
     li.textContent = score;
     li.setAttribute("data-index", i);
+
+    highList.appendChild(li);
   }
 
 }
