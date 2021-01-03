@@ -16,7 +16,7 @@ Created a quiz about JavaScript using HTML, BootStrap, and JavaScript.  The quiz
 - Bootcamp Activities 5, 6, 8, 28
 
 ## Screen Shots
-<img scr="https://github.com/krcook1980/JavaScriptQuiz/blob/main/assets/start.JPG">
-<img scr="https://github.com/krcook1980/JavaScriptQuiz/blob/main/assets/quiz.JPG">
+<img src="https://github.com/krcook1980/JavaScriptQuiz/blob/main/assets/start.JPG">
+<img src="https://github.com/krcook1980/JavaScriptQuiz/blob/main/assets/quiz.JPG">
 <img src="https://github.com/krcook1980/JavaScriptQuiz/blob/main/assets/end.JPG">
-<img scr="https://github.com/krcook1980/JavaScriptQuiz/blob/main/assets/score.JPG">
+<img src="https://github.com/krcook1980/JavaScriptQuiz/blob/main/assets/score.JPG">
