@@ -8,6 +8,7 @@ var quizDiv = document.getElementById("quizDiv");
 var correct = document.getElementById("correct");
 var endScore = document.getElementById("endScore");
 var highScore = document.getElementById("highScores");
+var highScoreLink = document.getElementById("scoreLink");
 var highList = document.getElementById("highList");
 var btn1 = document.getElementById("C1");
 var btn2 = document.getElementById("C2");
@@ -182,7 +183,9 @@ function endQuiz() {
 
 //push score and name to local storage
 function logHighScore() {
-  localStorage.setItem("scores", JSON.stringify(secondsLeft + " - " + document.querySelector(".nameEntered").value));
+  scores.push(secondsLeft + " - " + document.querySelector(".nameEntered").value);
+  localStorage.setItem("scores", JSON.stringify(scores));
+  
 }
 
 //Get scores out of local storage & add to ul
@@ -219,10 +222,18 @@ function highScores() {
   renderScores();
 }
 
+function highScoresLink (){
+  startDiv.className = "invisible"
+  startDiv.style = "display:none";
+  quizDiv.classList.remove("visible");
+  quizDiv.className = "invisible";
+  quizDiv.style = "display:none";
+  highScores();
+}
 
 //Click submit to log and display high scores
 submit.addEventListener("click", highScores);
-
+highScoreLink.addEventListener("click", highScoresLink);
 
 //Clear scores button
 function clearS() {
