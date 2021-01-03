@@ -183,6 +183,10 @@ function endQuiz() {
 
 //push score and name to local storage
 function logHighScore() {
+var storedScores = JSON.parse(localStorage.getItem("scores"));
+  if (storedScores !== null) {
+    scores = storedScores;
+  }
   scores.push(secondsLeft + " - " + document.querySelector(".nameEntered").value);
   localStorage.setItem("scores", JSON.stringify(scores));
   
@@ -190,7 +194,7 @@ function logHighScore() {
 
 //Get scores out of local storage & add to ul
 function renderScores() {
-  highList.innerHTML = "";
+  
   
   for (var i = 0; i < scores.length; i++) {
     var score = scores[i];
@@ -214,10 +218,7 @@ function highScores() {
   highScore.classList.className = "visible";
 
   //pull local storage scores and add them to the list of high scores
-  var storedScores = JSON.parse(localStorage.getItem("scores"));
-  if (storedScores !== null) {
-    scores = storedScores;
-  }
+  
 
   renderScores();
 }
