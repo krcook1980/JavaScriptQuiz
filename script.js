@@ -10,13 +10,7 @@ var endScore = document.getElementById("endScore");
 var highScore = document.getElementById("highScores");
 var highScoreLink = document.getElementById("scoreLink");
 var highList = document.getElementById("highList");
-var btn1 = document.getElementById("C1");
-var btn2 = document.getElementById("C2");
-var btn3 = document.getElementById("C3");
-var btn4 = document.getElementById("C4");
 var choiceBtn = document.querySelectorAll(".choiceBtn");
-var choiceButton = document.querySelectorAll(".choiceBtn");
-var timerInterval;
 var submit = document.querySelector(".submitBtn");
 var clear = document.querySelector(".clearBtn");
 var scores = [];
@@ -26,11 +20,11 @@ var Q1 = {
   qNumber: "Question 1",
   question: "Which is a value of a boolean?",
   C1: "Yes",
-  C2: "True",
-  C3: "Undefined",
+  C2: "Undefined",
+  C3: "True",
   C4: "var i = 0",
-  answer: "C2",
-}
+  answer: "C3",
+};
 var Q2 = {
   qNumber: "Question 2",
   question: "In the array var cats = ['Meow', 'Claws', 'Hairball', 'Purr'], which index is Hairball?",
@@ -39,7 +33,7 @@ var Q2 = {
   C3: "3",
   C4: "4",
   answer: "C2",
-}
+};
 var Q3 = {
   qNumber: "Question 3",
   question: "Which of the following is the assignment operator?",
@@ -48,16 +42,16 @@ var Q3 = {
   C3: "i++",
   C4: "=",
   answer: "C4",
-}
+};
 var Q4 = {
   qNumber: "Question 4",
-  question: "Which of the following is a JavaScript best practice.",
-  C1: "Always use global variables.",
-  C2: "Declare variables at the bottom of the script.",
-  C3: "Use === Comparison rather than ==.",
-  C4: "Always alphabetize your code.",
+  question: "Which of the following is a JavaScript best practice?",
+  C1: "Always use global variables",
+  C2: "Declare variables at the bottom of the script",
+  C3: "Use === Comparison rather than ==",
+  C4: "Always alphabetize your code",
   answer: "C3",
-}
+};
 var Q5 = {
   qNumber: "Question 5",
   question: "Which of the following is a type of loop?",
@@ -66,7 +60,7 @@ var Q5 = {
   C3: "do/while",
   C4: "All of the above.",
   answer: "C4",
-}
+};
 var Q6 = {
   qNumber: "Question 6",
   question: "What does === mean?",
@@ -75,7 +69,7 @@ var Q6 = {
   C3: "greater than",
   C4: "not equal value or not equal type",
   answer: "C1",
-}
+};
 
 //global var dependant on above objects must be below to function
 var questionsArray = [Q1, Q2, Q3, Q4, Q5, Q6];
@@ -107,7 +101,7 @@ function hideCorrect() {
 
 //on click start button, start time and quiz
 function startQuiz() {
-  startDiv.className = "invisible"
+  startDiv.className = "invisible";
   startDiv.style = "display:none";
   quizDiv.classList.remove("invisible");
   quizDiv.className = "visible";
@@ -226,7 +220,7 @@ function highScores() {
 
 function highScoresLink() {
   timeEl.className = "invisible";
-  startDiv.className = "invisible"
+  startDiv.className = "invisible";
   startDiv.style = "display:none";
   quizDiv.classList.remove("visible");
   quizDiv.className = "invisible";
