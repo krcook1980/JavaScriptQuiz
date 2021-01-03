@@ -107,26 +107,24 @@ function hideCorrect() {
 
 //on click start button, start time and quiz
 function startQuiz() {
-  setTime();
-  quizDisplay();
   startDiv.className = "invisible"
   startDiv.style = "display:none";
   quizDiv.classList.remove("invisible");
   quizDiv.className = "visible";
+  setTime();
+  quizDisplay();
 }
 
 //function to display each question in quiz
 function quizDisplay() {
-
   document.getElementById("Q").innerHTML = questionsArray[questionIndex].qNumber + ": " + questionsArray[questionIndex].question;
   document.getElementById("C1").innerHTML = questionsArray[questionIndex].C1;
   document.getElementById("C2").innerHTML = questionsArray[questionIndex].C2;
   document.getElementById("C3").innerHTML = questionsArray[questionIndex].C3;
   document.getElementById("C4").innerHTML = questionsArray[questionIndex].C4;
-
 }
 
-//find which button is selected
+//find which button is selected, post if correct, continue questions or end
 for (var i = 0; i < choiceBtn.length; i++) {
   choiceBtn[i].addEventListener("click", choices);
 }
@@ -183,13 +181,13 @@ function endQuiz() {
 
 //push score and name to local storage
 function logHighScore() {
-var storedScores = JSON.parse(localStorage.getItem("scores"));
+  var storedScores = JSON.parse(localStorage.getItem("scores"));
   if (storedScores !== null) {
     scores = storedScores;
   }
   scores.push(secondsLeft + " - " + document.querySelector(".nameEntered").value);
   localStorage.setItem("scores", JSON.stringify(scores));
-  
+
 }
 
 //Get scores out of local storage & add to ul
@@ -223,22 +221,25 @@ function highScores() {
   highScore.classList.remove("invisible");
   highScore.classList.className = "visible";
 
-  //pull local storage scores and add them to the list of high scores
-  
-
   renderScores();
 }
 
-function highScoresLink (){
+function highScoresLink() {
+  timeEl.className = "invisible";
   startDiv.className = "invisible"
   startDiv.style = "display:none";
   quizDiv.classList.remove("visible");
   quizDiv.className = "invisible";
   quizDiv.style = "display:none";
-  highScores();
+  endScore.classList.remove("visible");
+  endScore.className = "invisible";
+  endScore.style = "display:none";
+  highScore.classList.remove("invisible");
+  highScore.classList.className = "visible";
+  renderScores();
 }
 
-//Click submit to log and display high scores
+//Click submit to log and display high scores or high scores link
 submit.addEventListener("click", highScores);
 highScoreLink.addEventListener("click", highScoresLink);
 
