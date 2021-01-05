@@ -13,6 +13,7 @@ var highList = document.getElementById("highList");
 var choiceBtn = document.querySelectorAll(".choiceBtn");
 var submit = document.querySelector(".submitBtn");
 var clear = document.querySelector(".clearBtn");
+var timerInterval;
 var scores = [];
 
 //question objects
@@ -78,7 +79,7 @@ var questionIndex = 0;
 
 //function for timer
 function setTime() {
-  var timerInterval = setInterval(function () {
+  timerInterval = setInterval(function () {
     secondsLeft--;
     timeEl.textContent = secondsLeft + " seconds remaining";
 
@@ -132,7 +133,7 @@ function choices() {
   }
   else {
     endQuiz();
-    timeEl.className = "invisible";
+    clearInterval(timerInterval);
   }
 }
 
